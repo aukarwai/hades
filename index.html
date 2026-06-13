@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131011">
-<title>HADES · LIVE</title>
+<title>HADES · WIDE</title>
 <style>
 :root{--pitch:#131011;--basalt:#1d1819;--basalt2:#221c1d;--bone:#e7dcc8;--ash:#8e8276;--ash2:#6b6159;
 --gold:#c8a24b;--gold2:#e3c376;--ember:#c4502e;--ember2:#e2734c;--asph:#9fb8a4;
@@ -47,6 +47,7 @@ letter-spacing:.06em;min-height:24px}
 .d5{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;border:1px solid var(--hair);padding:4px 7px;color:var(--ash2)}
 .d5.on{color:var(--gold);border-color:rgba(200,162,75,.6)}
 .d5.warn{color:var(--ember2);border-color:rgba(196,80,46,.6)}
+.d5.dormant{color:var(--ash2);border-color:var(--hair);opacity:.6}
 .d5.calm{color:var(--asph);border-color:rgba(159,184,164,.55)}
 
 /* panels */
@@ -120,13 +121,13 @@ font-size:9px;line-height:1.9;color:var(--ash2);text-align:center;letter-spacing
   <div class="shead"><h2>The Gauges</h2><span class="gname">live · closed 1m bars</span></div>
   <div class="g"><div class="ttl"><span class="nm">TARTARUS · abyss</span><span class="val" id="gXv">—</span></div>
     <div class="bar"><div class="fill fX" id="gXf"></div><div class="notch v" id="gXveto"></div><div class="notch" id="gXn"></div></div>
-    <div class="meta"><span>fires today <b id="cX">0</b> · last <b id="tX">—</b></span><span>thr 11.26 · veto 3.64</span></div></div>
+    <div class="meta"><span>fires today <b id="cX">0</b> · last <b id="tX">—</b></span><span>thr N 11.3 · W 7.1 · veto 3.64</span></div></div>
   <div class="g"><div class="ttl"><span class="nm">IXION REALITY · entry weather</span><span class="val" id="gRv">—</span></div>
     <div class="bar"><div class="fill fR" id="gRf"></div><div class="notch" id="gRn"></div></div>
     <div class="meta"><span>fires today <b id="cR">0</b> · last <b id="tR">—</b></span><span>thr 3.92 · veto-gated</span></div></div>
   <div class="g"><div class="ttl"><span class="nm">LETHE BELL · stand-down</span><span class="val" id="gLv">—</span></div>
     <div class="bar"><div class="fill fL" id="gLf"></div><div class="notch" id="gLn"></div></div>
-    <div class="meta"><span>fires today <b id="cL">0</b> · last <b id="tL">—</b></span><span>thr 5.06</span></div></div>
+    <div class="meta"><span>fires today <b id="cL">0</b> · last <b id="tL">—</b></span><span>thr N 5.1 · W 7.4</span></div></div>
   <div class="g"><div class="ttl"><span class="nm">HARVEST-ELIM · field</span><span class="val" id="gHv">—</span></div>
     <div class="bar"><div class="fill fH" id="gHf"></div><div class="notch" id="gHn"></div></div>
     <div class="meta"><span>fires today <b id="cH">0</b> · last <b id="tH">—</b></span><span>thr 1.39</span></div></div>
@@ -149,17 +150,17 @@ font-size:9px;line-height:1.9;color:var(--ash2);text-align:center;letter-spacing
 </section>
 
 <footer>
-  HADES LIVE · engine parity vs frozen scores: max Δ 1.5e-7 (PASS)<br>
+  HADES WIDE · LIVE engine below 0.006, wide-fit Alarm+Bell above · parity 4.9e-8<br>
   feed layer extracted from SHEOL V282 (BingX ws → Binance ws → REST pulse)<br>
   flow siphon extracted from Taker_Ratio.html (BingX @trade) · venue-scaled fallback bars<br>
-  verdict precedence: stale → era → <b style="color:var(--ember2)">abyss</b> → stand-down → entry → field-clear → neutral<br>
-  ticks &amp; time only · nothing refit · scores void outside era 0.0020–0.0060
+  below 0.006: full LIVE engine · above 0.006: Alarm+Bell carry, Reality &amp; HARVEST dormant (no high-zone data)<br>
+  ticks &amp; time only · nothing refit · scores void outside era 0.0020–0.0100
 </footer>
 
 </div>
 <script>
 /* ================= FROZEN CONSTANTS ================= */
-const LP={
+const LPN={
  "BR95": 110.0,
  "tick": 1e-07,
  "now_era": [
@@ -280,8 +281,113 @@ const LP={
   "ext": 200,
   "ret": 175
  }
-};
-const CLOCK=[{"ooH": 0.533, "ooX": 0.18, "ooL": 0.287}, {"ooH": 0.569, "ooX": 0.127, "ooL": 0.304}, {"ooH": 0.563, "ooX": 0.105, "ooL": 0.332}, {"ooH": 0.499, "ooX": 0.084, "ooL": 0.417}, {"ooH": 0.469, "ooX": 0.097, "ooL": 0.434}, {"ooH": 0.55, "ooX": 0.1, "ooL": 0.349}, {"ooH": 0.452, "ooX": 0.102, "ooL": 0.447}, {"ooH": 0.41, "ooX": 0.119, "ooL": 0.471}, {"ooH": 0.457, "ooX": 0.124, "ooL": 0.419}, {"ooH": 0.473, "ooX": 0.112, "ooL": 0.415}, {"ooH": 0.495, "ooX": 0.07, "ooL": 0.435}, {"ooH": 0.483, "ooX": 0.059, "ooL": 0.458}, {"ooH": 0.47, "ooX": 0.082, "ooL": 0.448}, {"ooH": 0.481, "ooX": 0.06, "ooL": 0.459}, {"ooH": 0.441, "ooX": 0.083, "ooL": 0.476}, {"ooH": 0.452, "ooX": 0.069, "ooL": 0.478}, {"ooH": 0.475, "ooX": 0.057, "ooL": 0.468}, {"ooH": 0.359, "ooX": 0.048, "ooL": 0.593}, {"ooH": 0.419, "ooX": 0.029, "ooL": 0.552}, {"ooH": 0.452, "ooX": 0.056, "ooL": 0.493}, {"ooH": 0.566, "ooX": 0.073, "ooL": 0.361}, {"ooH": 0.58, "ooX": 0.168, "ooL": 0.252}, {"ooH": 0.614, "ooX": 0.209, "ooL": 0.177}, {"ooH": 0.526, "ooX": 0.21, "ooL": 0.264}]; /* per-hour {ooH,ooX,ooL} sealed-day odds */
+};   /* narrow: full LIVE engine */
+const LPW={
+ "BR95": 110.0,
+ "tick": 1e-07,
+ "now_era": [
+  0.002,
+  0.01
+ ],
+ "tartarus": {
+  "w": {
+   "BANACH": 1.0,
+   "GIBBS": 1.0,
+   "KLEIN": -1.0,
+   "POINCARE": 1.0,
+   "EPR": 1.0,
+   "TWIN": 1.0,
+   "OLBERS": -1.0,
+   "GRANDFATHER": 1.0,
+   "HANGING": -1.0
+  },
+  "mu": {
+   "BANACH": 11.59098064123823,
+   "GIBBS": 0.9967914284189591,
+   "KLEIN": 0.31349327388943815,
+   "POINCARE": 0.7153166580127456,
+   "EPR": 0.5828291196450777,
+   "TWIN": 1.0034871834627732,
+   "OLBERS": 0.13770524595253814,
+   "GRANDFATHER": 0.064329901450425,
+   "HANGING": 19.906780952590804
+  },
+  "sd": {
+   "BANACH": 15.083595848961089,
+   "GIBBS": 0.005291044411436372,
+   "KLEIN": 0.48427576571295855,
+   "POINCARE": 0.5343174470246266,
+   "EPR": 0.11997100175141681,
+   "TWIN": 0.3070411272523313,
+   "OLBERS": 0.233153562417366,
+   "GRANDFATHER": 0.09766991044926683,
+   "HANGING": 59.25102352404229
+  },
+  "thr": 7.067646093477024
+ },
+ "lethe": {
+  "w": {
+   "GIBBS": -1.0,
+   "KLEIN": 1.0,
+   "DEATH": 1.0,
+   "EPR": -1.0,
+   "LOSCHMIDT": -1.0,
+   "TWIN": -1.0,
+   "OLBERS": 1.0,
+   "GRANDFATHER": -1.0,
+   "HANGING": 1.0
+  },
+  "mu": {
+   "GIBBS": 0.9967914284189591,
+   "KLEIN": 0.31349327388943815,
+   "DEATH": 0.036391378983029604,
+   "EPR": 0.5828291196450777,
+   "LOSCHMIDT": 0.014953286065770116,
+   "TWIN": 1.0034871834627732,
+   "OLBERS": 0.13770524595253814,
+   "GRANDFATHER": 0.064329901450425,
+   "HANGING": 19.906780952590804
+  },
+  "sd": {
+   "GIBBS": 0.005291044411436372,
+   "KLEIN": 0.48427576571295855,
+   "DEATH": 0.2905390290362944,
+   "EPR": 0.11997100175141681,
+   "LOSCHMIDT": 0.7623469522608894,
+   "TWIN": 0.3070411272523313,
+   "OLBERS": 0.233153562417366,
+   "GRANDFATHER": 0.09766991044926683,
+   "HANGING": 59.25102352404229
+  },
+  "thr": 7.3772233374019995
+ },
+ "xveto": 3.0254390793341344,
+ "he": {
+  "muX": -3.98668699735463e-14,
+  "sdX": 3.9443367216889906,
+  "muL": 3.965310659567206e-14,
+  "sdL": 4.075119976688576,
+  "thr": 0.7575491917090723
+ },
+ "he_dead": true,
+ "reality_zone": [
+  0.002,
+  0.006
+ ],
+ "merge": 13,
+ "band": [
+  350,
+  1200
+ ],
+ "breath": {
+  "win": 39,
+  "ext": 200,
+  "ret": 175
+ }
+};   /* wide: re-fit Alarm+Bell for 0.002–0.010 */
+const SWITCH=0.0060; /* below: narrow(LIVE) · at/above: wide Alarm/Bell */
+const LP=LPN;        /* shared scalars: tick, band, breath, merge all identical */
+const CLOCK=[{"ooH": 0.5104018912529551, "ooX": 0.33191489361702126, "ooL": 0.15768321513002365}, {"ooH": 0.5724586288416076, "ooX": 0.2635933806146572, "ooL": 0.1639479905437352}, {"ooH": 0.6037825059101655, "ooX": 0.2157210401891253, "ooL": 0.18049645390070923}, {"ooH": 0.5754406580493537, "ooX": 0.20011750881316098, "ooL": 0.2244418331374853}, {"ooH": 0.5624413145539906, "ooX": 0.23943661971830985, "ooL": 0.19812206572769953}, {"ooH": 0.6033447179366388, "ooX": 0.2416676480979861, "ooL": 0.1549876339653751}, {"ooH": 0.5710414703110274, "ooX": 0.2397502356267672, "ooL": 0.18920829406220546}, {"ooH": 0.527112676056338, "ooX": 0.2642018779342723, "ooL": 0.20868544600938968}, {"ooH": 0.5213705404450724, "ooX": 0.30943129636170963, "ooL": 0.16919816319321795}, {"ooH": 0.5082159624413145, "ooX": 0.2994131455399061, "ooL": 0.19237089201877935}, {"ooH": 0.5639671361502347, "ooX": 0.22406103286384976, "ooL": 0.2119718309859155}, {"ooH": 0.5632116445592206, "ooX": 0.21410963728137106, "ooL": 0.22267871815940837}, {"ooH": 0.5367370892018779, "ooX": 0.2353286384976526, "ooL": 0.22793427230046948}, {"ooH": 0.5751173708920188, "ooX": 0.19178403755868545, "ooL": 0.23309859154929577}, {"ooH": 0.5545774647887324, "ooX": 0.19823943661971832, "ooL": 0.2471830985915493}, {"ooH": 0.5602112676056338, "ooX": 0.22300469483568075, "ooL": 0.21678403755868544}, {"ooH": 0.5683098591549296, "ooX": 0.21115023474178404, "ooL": 0.2205399061032864}, {"ooH": 0.5051643192488263, "ooX": 0.23333333333333334, "ooL": 0.2615023474178404}, {"ooH": 0.534037558685446, "ooX": 0.21502347417840376, "ooL": 0.2509389671361502}, {"ooH": 0.5448356807511737, "ooX": 0.22347417840375586, "ooL": 0.23169014084507042}, {"ooH": 0.4979360773676141, "ooX": 0.3121830404528836, "ooL": 0.1898808821795023}, {"ooH": 0.46209258384506374, "ooX": 0.4017477562588569, "ooL": 0.13615965989607937}, {"ooH": 0.5127659574468085, "ooX": 0.382387706855792, "ooL": 0.10484633569739953}, {"ooH": 0.5104018912529551, "ooX": 0.37044917257683213, "ooL": 0.11914893617021277}]; /* per-hour {ooH,ooX,ooL} sealed-day odds */
 
 /* ================= ENGINE (parity-proven twin of hades_core.py) ================= */
 /* HADES live engine — JS twin of hades_core.py (frozen semantics).
@@ -327,6 +433,12 @@ function hadesEngine(LP){
     const dh=(hi79-c(i))/TICK, dl=(c(i)-lo79)/TICK;
     F.KLEIN  = Math.max(0,1-Math.min(dh,dl)/350)*(Math.abs(ret(i,13))/(rs79*Math.sqrt(13)+1));
     F.POINCARE = Math.abs(ret(i,79))/(rs79*Math.sqrt(79)+1);
+    /* LOSCHMIDT: skew of 1m returns over 79 (pandas .skew = bias-corrected G1) */
+    {const a=w79r, m=mean(a), L=a.length;
+     let s2=0,s3=0; for(const v of a){const dd=v-m; s2+=dd*dd; s3+=dd*dd*dd;}
+     const m2=s2/L, m3=s3/L, sdp=Math.sqrt(m2);
+     if(sdp<=1e-12||L<3)F.LOSCHMIDT=0;
+     else{const g1=m3/(sdp*sdp*sdp); F.LOSCHMIDT=g1*Math.sqrt(L*(L-1))/(L-2);}}
     F.DEATH  = 1-rs13/(rs79+1e-9);
     const z39=ret(i,39)/(rs79*Math.sqrt(39)+1), z4=ret(i,4)/(rs79*2+1);
     F.JESUS  = -(z39*z4);
@@ -362,7 +474,9 @@ function hadesEngine(LP){
         s+=cfg.w[f]*(x-cfg.mu[f])/cfg.sd[f];}
       return s}
     const SX=compo(LP.tartarus), SL=compo(LP.lethe);
-    let RE=0;{let bad=false;
+    let RE=0;
+    if(!LP.real){RE=-99;}            /* WIDE above reality-zone: no DNA gene */
+    else{let bad=false;
       for(const g in LP.real.genes){const x=F[g];if(isn(x)){bad=true;break}
         RE+=LP.real.genes[g]*(x-LP.real.mu[g])/LP.real.sd[g];}
       if(bad)RE=-99;}
@@ -374,7 +488,8 @@ function hadesEngine(LP){
 }
 
 
-const ENG=hadesEngine(LP);
+const ENGN=hadesEngine(LPN);   /* narrow composites + Reality + HARVEST */
+const ENGW=hadesEngine(LPW);   /* wide Alarm + Bell */
 
 /* =====================================================================
    FEED LAYER — extracted from SHEOL_V282 (Au Kar Wai's code), feed only.
@@ -501,6 +616,20 @@ setInterval(()=>{const fresh=Date.now()-SIPH.lastTradeAt<20000;
 },5000);
 
 /* ================= HADES LIVE CORE ================= */
+/* ---------- SCOPED PERSISTENCE (localStorage if available) ----------
+   Persists ONLY what live refetch cannot recover: siphon venue ratios,
+   today's fire counters, and an active breath anchor. NEVER candles/scores/
+   verdicts. Fails silently if storage unavailable. [HADES] */
+const HS={ok:(()=>{try{const k='_hlive_t';localStorage.setItem(k,'1');localStorage.removeItem(k);return true}catch(e){return false}})(),
+  K:'hades_live_v1',
+  load(){if(!this.ok)return null;try{return JSON.parse(localStorage.getItem(this.K)||'null')}catch(e){return null}},
+  save(o){if(!this.ok)return;try{localStorage.setItem(this.K,JSON.stringify(o))}catch(e){}}};
+function hsPersist(){
+  HS.save({ts:Date.now(),ratioV:SIPH.ratioV,ratioN:SIPH.ratioN,calVn:SIPH.calV.length,
+    eps:{X:{...eps.X},R:{...eps.R},L:{...eps.L},H:{...eps.H}},
+    breath:(BR.armed&&!BR.done)?{anchor:BR.anchor,t0:BR.t0,why:BR.why,touched:BR.touched,touchT:BR.touchT,touchPx:BR.touchPx,dir:BR.dir}:null});
+}
+
 const EB=[]; const EBmap=new Map(); let bootT=Date.now();        /* engine bars: closed 1m klines with v/n/tb */
 let lastScore=null, p2ring=[], degraded=false, lastEngineT=0;
 const eps={X:{last:0,count:0,day:''},R:{last:0,count:0,day:''},L:{last:0,count:0,day:''},H:{last:0,count:0,day:''}};
@@ -561,9 +690,12 @@ function runEngine(){
   if(EB.length<200)return;
   const i=EB.length-1, barT=EB[i].t;
   if(barT===lastEngineT)return; lastEngineT=barT;
-  const r=ENG.compute(EB,i); if(!r)return;
-  lastScore={...r,barT,close:EB[i].c,deg:EB[i].deg||EB[i-1]?.deg||false,siph:EB[i].siph||EB[i-1]?.siph||false};
-  p2ring.push({zx:r.zx,zl:r.zl}); if(p2ring.length>13)p2ring.shift();
+  const rN=ENGN.compute(EB,i); if(!rN)return;
+  const rW=ENGW.compute(EB,i);
+  const close=EB[i].c, sub=close<SWITCH;
+  lastScore={N:rN,W:rW,sub,barT,close,deg:EB[i].deg||EB[i-1]?.deg||false,siph:EB[i].siph||EB[i-1]?.siph||false};
+  /* P2 ring uses whichever calibration is active in this zone */
+  const pz=sub?rN:rW; p2ring.push({zx:pz.zx,zl:pz.zl}); if(p2ring.length>13)p2ring.shift();
   const st=states(lastScore);
   if(st.alarm)fire('X',barT,'TARTARUS ALARM','x');
   if(st.reality)fire('R',barT,'IXION REALITY','h');
@@ -572,16 +704,29 @@ function runEngine(){
   render(st);
 }
 function states(s){
-  const okR=s.REAL>-90, okXL=s.SX>-90&&s.SL>-90;
-  return{
-    alarm: okXL&&s.SX>=LP.tartarus.thr,
-    bell:  okXL&&s.SL>=LP.lethe.thr,
-    reality: okR&&okXL&&s.REAL>=LP.real.thr&&s.SX<LP.xveto,
-    halluc: okR&&(-s.REAL)>=LP.halluc.thr,
-    elim:  okXL&&s.HE>=LP.he.thr,
-    p2: p2ring.length===13&&p2ring.every(p=>p.zx<0&&p.zl<0),
-    okR,okXL
-  };
+  if(s.sub){
+    /* SUB-ZONE 0.002–0.006 : identical to HADES LIVE (narrow calibration) */
+    const n=s.N, okR=n.REAL>-90, okXL=n.SX>-90&&n.SL>-90;
+    return{ zone:'sub',
+      alarm: okXL&&n.SX>=LPN.tartarus.thr,
+      bell:  okXL&&n.SL>=LPN.lethe.thr,
+      reality: okR&&okXL&&n.REAL>=LPN.real.thr&&n.SX<LPN.xveto,
+      halluc: okR&&(-n.REAL)>=LPN.halluc.thr,
+      elim:  okXL&&n.HE>=LPN.he.thr,
+      realityDormant:false, harvestDormant:false,
+      p2: p2ring.length===13&&p2ring.every(p=>p.zx<0&&p.zl<0),
+      okR,okXL };
+  }else{
+    /* HIGH ZONE 0.006–0.010 : wide Alarm+Bell ; Reality & HARVEST have no data here */
+    const w=s.W, okXL=w&&w.SX>-90&&w.SL>-90;
+    return{ zone:'high',
+      alarm: okXL&&w.SX>=LPW.tartarus.thr,
+      bell:  okXL&&w.SL>=LPW.lethe.thr,
+      reality:false, halluc:false, elim:false,
+      realityDormant:true, harvestDormant:true,
+      p2: p2ring.length===13&&p2ring.every(p=>p.zx<0&&p.zl<0),
+      okR:false, okXL };
+  }
 }
 function gauge(fid,nid,val,lo,hi,thr,vetoId,veto){
   const pct=v=>Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100));
@@ -589,18 +734,26 @@ function gauge(fid,nid,val,lo,hi,thr,vetoId,veto){
   if(vetoId)E(vetoId).style.left=pct(veto)+'%';
 }
 function render(st){
-  const s=lastScore, eraOK=s.close>=LP.now_era[0]&&s.close<=LP.now_era[1];
-  const okXL=s.SX>-90&&s.SL>-90, okR=s.REAL>-90;
+  const s=lastScore, eraOK=s.close>=LPW.now_era[0]&&s.close<=LPW.now_era[1];
+  const sub=s.sub, A=sub?s.N:s.W;                 /* active composites for Alarm/Bell/TARTARUS/LETHE gauges */
+  const okXL=A&&A.SX>-90&&A.SL>-90;
+  const tThr=sub?LPN.tartarus.thr:LPW.tartarus.thr, lThr=sub?LPN.lethe.thr:LPW.lethe.thr, tVeto=sub?LPN.xveto:LPW.xveto;
   E('eraChip').textContent='ERA '+(eraOK?'OK':'VOID');E('eraChip').className='chip '+(eraOK?'ok':'bad');
   E('barChip').textContent='BAR '+mytHM(s.barT)+(s.deg?' ≈':'');E('barChip').className='chip '+(s.deg?'bad':'ok');
-  E('gXv').textContent=okXL?s.SX.toFixed(2):'—';
-  E('gRv').textContent=okR?s.REAL.toFixed(2):'—';
-  E('gLv').textContent=okXL?s.SL.toFixed(2):'—';
-  E('gHv').textContent=okXL?s.HE.toFixed(2):'—';
-  gauge('gXf','gXn',okXL?s.SX:-8,-8,16,LP.tartarus.thr,'gXveto',LP.xveto);
-  gauge('gRf','gRn',okR?s.REAL:-6,-6,8,LP.real.thr);
-  gauge('gLf','gLn',okXL?s.SL:-6,-6,9,LP.lethe.thr);
-  gauge('gHf','gHn',okXL?s.HE:-4,-4,4,LP.he.thr);
+  /* TARTARUS gauge — active in both zones (narrow below, wide above) */
+  E('gXv').textContent=okXL?A.SX.toFixed(2):'—';
+  gauge('gXf','gXn',okXL?A.SX:-10,-10,18,tThr,'gXveto',tVeto);
+  /* REALITY gauge — narrow below 0.006 ; dormant above */
+  if(sub){const okR=s.N.REAL>-90; E('gRv').textContent=okR?s.N.REAL.toFixed(2):'—';
+    gauge('gRf','gRn',okR?s.N.REAL:-6,-6,8,LPN.real.thr);}
+  else{E('gRv').textContent='zzz';gauge('gRf','gRn',-6,-6,8,LPN.real.thr);}
+  /* LETHE gauge — active in both zones */
+  E('gLv').textContent=okXL?A.SL.toFixed(2):'—';
+  gauge('gLf','gLn',okXL?A.SL:-8,-8,14,lThr);
+  /* HARVEST-ELIM gauge — narrow below 0.006 ; dormant above */
+  if(sub){const ok=s.N.SX>-90&&s.N.SL>-90; E('gHv').textContent=ok?s.N.HE.toFixed(2):'—';
+    gauge('gHf','gHn',ok?s.N.HE:-4,-4,4,LPN.he.thr);}
+  else{E('gHv').textContent='zzz';gauge('gHf','gHn',-4,-4,4,LPN.he.thr);}
   for(const[k,c,t]of[['X','cX','tX'],['R','cR','tR'],['L','cL','tL'],['H','cH','tH']]){
     todayBump(k,s.barT);E(c).textContent=eps[k].count;E(t).textContent=eps[k].last?mytHM(eps[k].last):'—'}
   const hr=myt(s.barT).getHours(), C=CLOCK[hr];
@@ -608,18 +761,23 @@ function render(st){
   const fresh=tickOK && (Date.now()-s.barT)<210000;
   let cls,word,act;
   if(!fresh){cls='v-stale';word='NO VERDICT';act='Feed or bars are stale — the engine refuses to guess. Check connection.'}
-  else if(!eraOK){cls='v-void';word='VOID';act='Price left the calibrated era (0.0020–0.0060). Every score is unmeasured here — the engine must be re-broken before trust.'}
-  else if(st.alarm){cls='v-abyss';word='ABYSS WEATHER';act='Runaway odds ~3× normal. Catastrophe stop is senior to everything. No fades without it; entries accept 1200t+ travel either way.'}
-  else if(st.bell||st.halluc){cls='v-stand';word='STAND DOWN';act=(st.bell?'The Bell rings — dead or whipsaw ahead ~8 in 10. ':'')+(st.halluc?'Hallucination lit — this tape resembles your past losses. ':'')+'Sitting out is a position.'}
+  else if(!eraOK){cls='v-void';word='VOID';act='Price left the WIDE era (0.0020–0.0100). Beyond this, even the wide engine is unmeasured. Stand down.'}
+  else if(st.alarm){cls='v-abyss';word='ABYSS WEATHER';act=sub
+      ?'Runaway odds ~3× normal. Catastrophe stop is senior to everything. No fades without it; entries accept 1200t+ travel either way.'
+      :'High-zone abyss radar — ~2.3× base (P≈0.60 of >1200t). Catastrophe stop is senior to all. Size for chaos or skip.'}
+  else if(st.bell||st.halluc){cls='v-stand';word='STAND DOWN';act=(st.bell?'The Bell rings — dead or whipsaw ahead'+(sub?' ~8 in 10. ':' ~7 in 10. '):'')+(st.halluc?'Hallucination lit — this tape resembles your past losses. ':'')+'Sitting out is a position.'}
   else if(st.reality){cls='v-entry';word='ENTRY WEATHER';act='Tape matches your winning fingerprint — band ~2 in 3, abyss normal. Direction is yours; the engine is silent on it by law.'}
   else if(st.p2||st.elim){cls='v-clear';word='FIELD CLEAR';act='Both rivers below their means'+(st.elim?' and elimination fired':'')+' — band odds rise toward .59–.66 with the abyss flat.'}
-  else{cls='v-neutral';word='NEUTRAL';act='Base odds rule. Let the clock carry you; patience is positioning in time.'}
+  else{cls='v-neutral';word='NEUTRAL';act=sub
+      ?'Base odds rule. Let the clock carry you; patience is positioning in time.'
+      :'No wide signal firing. Base odds rule in the high zone — Reality &amp; HARVEST rest here (no high-zone data); Alarm &amp; Bell stand guard.'}
   const vd=E('verd');vd.className='verd '+cls;E('vWord').textContent=word;E('vAct').textContent=act;
-  E('vSub').textContent='hour '+String(hr).padStart(2,'0')+' · band .'+Math.round(C.ooH*100)+' abyss .'+(C.ooX<.095?'0':'')+Math.round(C.ooX*100)+' lethe .'+Math.round(C.ooL*100)+(s.deg?(s.siph?' · ≈ siphon bar':' · ≈ degraded bar'):'');
-  E('dHour').className='d5 '+(C.ooH>=0.52?'on':C.ooH<=0.42?'calm':'');
+  const zoneTag=sub?'sub-zone · full engine':'high zone · Alarm+Bell';
+  E('vSub').textContent=zoneTag+' · hour '+String(hr).padStart(2,'0')+' · band .'+Math.round(C.ooH*100)+' abyss .'+(C.ooX<.095?'0':'')+Math.round(C.ooX*100)+' lethe .'+Math.round(C.ooL*100)+(s.deg?(s.siph?' · ≈ siphon bar':' · ≈ degraded bar'):'');
+  E('dHour').className='d5 '+(C.ooH>=0.55?'on':C.ooH<=0.45?'calm':'');
   E('dBell').className='d5 '+((st.bell||st.halluc)?'calm':'');E('dBell').textContent=(st.bell||st.halluc)?'BELL ✕':'BELL';
   E('dAlarm').className='d5 '+(st.alarm?'warn':'');E('dAlarm').textContent=st.alarm?'ALARM ✕':'ALARM';
-  E('dReal').className='d5 '+(st.reality?'on':'');E('dReal').textContent=st.reality?'REAL ✓':'REALITY';
+  E('dReal').className='d5 '+(st.reality?'on':(st.realityDormant?'dormant':''));E('dReal').textContent=st.realityDormant?'REAL zzz':(st.reality?'REAL ✓':'REALITY');
   E('dP2').className='d5 '+(st.p2?'on':'');
   renderBreath();
 }
@@ -675,8 +833,52 @@ function renderBreath(){
 setInterval(()=>{E('mytClock').textContent=mytHM()},1000);
 E('mytClock').textContent=mytHM();
 setInterval(pullClosed,5000);
+
+(function hsRestore(){
+  const s=HS.load(); if(!s) return;
+  const ageH=(Date.now()-(s.ts||0))/3600000;
+  if(ageH<24 && s.ratioV>0 && s.ratioN>0){ SIPH.ratioV=s.ratioV; SIPH.ratioN=s.ratioN;
+    if(s.calVn>0){SIPH.calV.push(s.ratioV);SIPH.calN.push(s.ratioN);} }
+  const today=mytDay(Date.now());
+  if(s.eps){for(const k of ['X','R','L','H']){if(s.eps[k]&&s.eps[k].day===today)eps[k]={...s.eps[k]}}}
+  if(s.breath && (Date.now()-s.breath.t0)<79*60000){
+    BR.armed=true;Object.assign(BR,s.breath);BR.done=false;
+    E('brBody').style.display='block';E('brHint').style.display='none';
+    E('armBtn').textContent='RE-MARK AT CURRENT PRICE';
+    log('h','breath restored @ '+fmtPx(BR.anchor)+' ('+BR.why+')');
+  }
+})();
+
+setInterval(hsPersist,15000);
+window.addEventListener('pagehide',hsPersist);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)hsPersist();});
+
 sync();
 connectSiphon();
+
+/* ---------- WAKE-ON-FOREGROUND (phone backgrounding) ----------
+   Mobile OSes freeze JS timers and may drop WebSockets when backgrounded
+   (screen lock, app switch). These resync the instant you return, instead
+   of waiting for the next watchdog tick. [HADES] */
+function hadesWake(why){
+  const age=Date.now()-(lastLive||0);
+  setStatus('resyncing on '+why+'…');
+  if(age>8000||sheolSocketState(wsA)!=='OPEN'){
+    sheolRestPulse();
+    bingxTries=0; binanceTries=0; closeSockets();
+    setTimeout(()=>connectBingX(),300);
+  }
+  if(Date.now()-SIPH.lastTradeAt>8000){
+    try{if(SIPH.ws){SIPH.ws.onclose=null;SIPH.ws.close()}}catch(e){}
+    SIPH.ws=null; SIPH.tries=0; connectSiphon();
+  }
+  pullClosed();
+}
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) hadesWake('return'); });
+window.addEventListener('focus',()=>hadesWake('focus'));
+window.addEventListener('pageshow',e=>{ if(e.persisted) hadesWake('restore'); });
+window.addEventListener('online',()=>hadesWake('network'));
+window.addEventListener('offline',()=>setStatus('offline · waiting for network'));
 </script>
 </body>
 </html>
